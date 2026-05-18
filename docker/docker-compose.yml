@@ -1,0 +1,24 @@
+services:
+  db:
+    image: mysql:5.7
+    container_name: wp-db
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wppass
+    ports:
+      - "3306:3306"
+
+  wordpress:
+    image: wordpress:latest
+    container_name: wp-site
+    depends_on:
+      - db
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: wppass
+      WORDPRESS_DB_NAME: wordpress
+    ports:
+      - "8080:80"
