@@ -1,0 +1,40 @@
+name: WordPress WPScan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  wordpress-wpscan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Start Docker containers
+        run: |
+          docker compose -f docker/docker-compose.yml up -d
+
+      - name: Wait for WordPress
+        run: |
+          sleep 60
+          curl -I http://localhost:8080
+
+      - name: Install WPScan
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ruby-full build-essential libcurl4-openssl-dev zlib1g-dev
+          sudo gem install wpscan
+
+      - name: Run WPScan
+        run: |
+          mkdir -p scans
+          wpscan --url http://localhost:8080 --enumerate u,vp,vt --force --output scans/github-actions-scan.txt || true
+
+      - name: Upload scan artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wpscan-results
+          path: scans/github-actions-scan.txt
