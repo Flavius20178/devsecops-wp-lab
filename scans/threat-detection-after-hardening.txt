@@ -1,0 +1,67 @@
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.28
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[32m[+][0m URL: http://127.0.0.1:8080/ [127.0.0.1]
+[32m[+][0m Started: Wed Jun  3 12:52:46 2026
+
+Interesting Finding(s):
+
+[32m[+][0m Headers
+ | Interesting Entries:
+ |  - Server: Apache/2.4.67 (Debian)
+ |  - X-Powered-By: PHP/8.3.31
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[32m[+][0m WordPress readme found: http://127.0.0.1:8080/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[32m[+][0m The external WP-Cron seems to be enabled: http://127.0.0.1:8080/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[32m[+][0m WordPress version 6.9.4 identified (Latest, released on 2026-03-11).
+ | Found By: Meta Generator (Passive Detection)
+ |  - http://127.0.0.1:8080/, Match: 'WordPress 6.9.4'
+ | Confirmed By: Atom Generator (Aggressive Detection)
+ |  - http://127.0.0.1:8080/?feed=atom, <generator uri="https://wordpress.org/" version="6.9.4">WordPress</generator>
+
+[34m[i][0m The main theme could not be detected.
+
+
+[34m[i][0m No plugins Found.
+
+
+[34m[i][0m No themes Found.
+
+
+[34m[i][0m User(s) Identified:
+
+[32m[+][0m test
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+
+[33m[!][0m No WPScan API Token given, as a result vulnerability data has not been output.
+[33m[!][0m You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
+
+[32m[+][0m Finished: Wed Jun  3 12:53:10 2026
+[32m[+][0m Requests Done: 1013
+[32m[+][0m Cached Requests: 44
+[32m[+][0m Data Sent: 272.05 KB
+[32m[+][0m Data Received: 1.22 MB
+[32m[+][0m Memory used: 315.914 MB
+[32m[+][0m Elapsed time: 00:00:23

@@ -1,0 +1,9 @@
+<Files xmlrpc.php>
+    Require all denied
+</Files>
+
+<Files readme.html>
+    Require all denied
+</Files>
+
+ServerSignature Off

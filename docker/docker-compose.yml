@@ -12,7 +12,7 @@ services:
 
   wordpress:
     build:
-        context: .
+        context: ..
         dockerfile: docker/Dockerfile
     container_name: wp-site
     depends_on:
