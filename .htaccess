@@ -1,0 +1,15 @@
+<Files xmlrpc.php>
+    Require all denied
+</Files>
+
+<Files wp-cron.php>
+    Require all denied
+</Files>
+
+<Files readme.html>
+    Require all denied
+</Files>
+
+RedirectMatch 403 ^/wp-content/mu-plugins/.*\.php$
+
+ServerSignature Off
